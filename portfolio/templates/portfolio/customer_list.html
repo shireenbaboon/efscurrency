@@ -60,7 +60,7 @@
                            onclick="return confirm('Are you sure you want to delete?')"
                            class="btn btn-danger">Delete</a>
                     </td>
-                    <td><a href=""
+                    <td><a href="{% url 'portfolio:portfolio' pk=customer.pk %}"
                            class="btn btn-primary">Portfolio</a>
                 </tr>
             {% endfor %}
