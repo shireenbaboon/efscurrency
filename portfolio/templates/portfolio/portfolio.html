@@ -43,9 +43,9 @@
         <tbody>
 
             <tr>
-                <td>{{ sum_of_initial_stock_value|add:sum_initial_investment }}</td>
-                <td>{{ sum_current_stocks_value|add:sum_current_investment}}</td>
-                <td>{{grand_total_results}}</td>
+                <td>{{ sum_of_initial_stock_value|add:sum_initial_investment|intcomma }}</td>
+                <td>{{ sum_current_stocks_value|add:sum_current_investment|intcomma}}</td>
+                <td>{{grand_total_results|intcomma}}</td>
             </tr>
 
         </tbody>
@@ -81,9 +81,9 @@
                 <td>{{ stock.shares|intcomma }}</td>
                 <td>{{ stock.purchase_price|intcomma }}</td>
                 <td>{{ stock.initial_stock_value|intcomma}}</td>
-                <td> {{ stock.current_stock_price}}</td>
-                <td>{{ stock.current_stock_value }}</td>
-                <td>{{sum_current_stocks_value|sub:sum_of_initial_stock_value }}</td>
+                <td> {{ stock.current_stock_price|intcomma}}</td>
+                <td>{{ stock.current_stock_value|intcomma}}</td>
+                <td>{{stock.current_stock_value|sub:stock.initial_stock_value|intcomma }}</td>
 
 
 
@@ -104,9 +104,9 @@
         <tbody>
 
             <tr>
-                <td>{{ sum_of_initial_stock_value }}</td>
-                <td>{{ sum_current_stocks_value }}</td>
-                <td>{{ sum_current_stocks_value|sub:sum_of_initial_stock_value }}</td>
+                <td>{{ sum_of_initial_stock_value|intcomma }}</td>
+                <td>{{ sum_current_stocks_value|intcomma }}</td>
+                <td>{{ sum_current_stocks_value|sub:sum_of_initial_stock_value|intcomma }}</td>
             </tr>
 
         </tbody>
@@ -136,11 +136,11 @@
                 <td>{{ investment.customer }}</td>
                 <td>{{ investment.category }}</td>
                 <td>{{ investment.description }}</td>
-                <td>{{ investment.acquired_value }}</td>
+                <td>{{ investment.acquired_value|intcomma }}</td>
                 <td>{{ investment.acquired_date }}</td>
-                <td>{{ investment.recent_value }}</td>
+                <td>{{ investment.recent_value|intcomma }}</td>
                 <td>{{ investment.recent_date }}</td>
-                <td>{{investment.recent_value|sub:investment.acquired_value }}</td>
+                <td>{{investment.recent_value|sub:investment.acquired_value|intcomma }}</td>
 
             </tr>
         {% endfor %}
@@ -159,9 +159,9 @@
         <tbody>
 
             <tr>
-                <td>{{ sum_initial_investment }}</td>
-                <td>{{ sum_current_investment }}</td>
-                <td>{{ sum_current_investment|sub:sum_initial_investment }}</td>
+                <td>{{ sum_initial_investment|intcomma }}</td>
+                <td>{{ sum_current_investment|intcomma }}</td>
+                <td>{{ sum_current_investment|sub:sum_initial_investment|intcomma }}</td>
             </tr>
 
         </tbody>
