@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'mathfilters',
     'django.contrib.humanize',
+    'users',
+
 ]
 
 MIDDLEWARE = [
@@ -140,4 +142,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 django_heroku.settings(locals())
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
+
 

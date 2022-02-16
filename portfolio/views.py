@@ -19,6 +19,8 @@ now = timezone.now()
 def home(request):
     return render(request, 'portfolio/home.html',
                   {'portfolio': home})
+def signup(request):
+    return render(request, 'portfolio/signup.html',{'portfolio':signup})
 
 
 @login_required
