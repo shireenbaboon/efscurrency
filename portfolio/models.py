@@ -76,7 +76,7 @@ class Stock(models.Model):
     def current_stock_price(self):
         symbol_f = str(self.symbol)
         main_api = 'http://api.marketstack.com/v1/eod?'
-        api_key = 'access_key=d0c02e1b84f3ea382cb7385d1e24a90f&limit=1&symbols='
+        api_key = 'access_key=252fc3da5338dbb9ee19384071f8c5c4&limit=1&symbols='
         url = main_api + api_key + symbol_f
         json_data = requests.get(url).json()
         open_price = float(json_data["data"][0]["open"])

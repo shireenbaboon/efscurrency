@@ -31,6 +31,7 @@
 <div class="row">
     <h2 style="padding-left: 15Px">Overall Portfolio Performance</h2>
 
+{% for customer in customers %}
 
 <div class="row">
     <table class="table table-striped table-bordered table-hover">
@@ -44,8 +45,8 @@
         <tbody>
 
             <tr>
-                <td>{{ sum_of_initial_stock_value|add:sum_initial_investment|intcomma }}</td>
-                <td>{{ sum_current_stocks_value|add:sum_current_investment|intcomma}}</td>
+                <td>{{stock.sum_of_initial_stock_value|add:investment.sum_initial_investment|intcomma }}</td>
+                <td>{{ stock.sum_current_stocks_value|add:investment.sum_current_investment|intcomma}}</td>
                 <td>{{grand_total_results|intcomma}}</td>
             </tr>
 
@@ -105,9 +106,9 @@
         <tbody>
 
             <tr>
-                <td>{{ sum_of_initial_stock_value|intcomma }}</td>
-                <td>{{ sum_current_stocks_value|intcomma }}</td>
-                <td>{{ sum_current_stocks_value|sub:sum_of_initial_stock_value|intcomma }}</td>
+                <td>{{stock.sum_of_initial_stock_value }}</td>
+                <td>{{stock.sum_current_stocks_value|intcomma }}</td>
+                <td>{{sum_current_stocks_value|sub:sum_of_initial_stock_value|intcomma }}</td>
             </tr>
 
         </tbody>
@@ -160,13 +161,14 @@
         <tbody>
 
             <tr>
-                <td>{{ sum_initial_investment|intcomma }}</td>
-                <td>{{ sum_current_investment|intcomma }}</td>
-                <td>{{ sum_current_investment|sub:sum_initial_investment|intcomma }}</td>
+                <td>{{investment.sum_initial_investment|intcomma }}</td>
+                <td>{{ investment.sum_current_investment|intcomma }}</td>
+                <td>{{investment.sum_current_investment|sub:sum_initial_investment|intcomma }}</td>
             </tr>
 
         </tbody>
     </table>
+    {% endfor %}
 </div>
 {% endblock %}
 
