@@ -2,7 +2,8 @@ from django.conf.urls import url
 from . import views
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'portfolio'
 urlpatterns = [
@@ -22,9 +23,8 @@ urlpatterns = [
     path('stock/<int:pk>/delete/', views.stock_delete, name='stock_delete'),
     path('customer/<int:pk>/portfolio/', views.portfolio, name='portfolio'),
     url(r'^customers_json/', views.CustomerList.as_view()),
-    #path('signup/',SignUpView.as_view(), name='signup'),
-
+    # path('signup/',SignUpView.as_view(), name='signup'),
+    path('currency', views.currency, name='index'),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
-

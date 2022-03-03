@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CustomerSerializer
 from django.shortcuts import render, get_object_or_404, redirect
-import weasyprint
+
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage, send_mail, send_mass_mail
 from django.conf import settings
@@ -38,6 +38,7 @@ def customer_list(request):
     return render(request, 'portfolio/customer_list.html',
                   {'customers': customer})
 
+
 @login_required
 def customer_new(request):
     if request.method == "POST":
@@ -51,7 +52,6 @@ def customer_new(request):
         form = CustomerForm()
         # print("Else")
     return render(request, 'portfolio/customer_new.html', {'form': form})
-
 
 
 @login_required
@@ -179,6 +179,12 @@ def stock_delete(request, pk):
     return redirect('portfolio:stock_list')
 
 
+def currency(request):
+    template = 'portfolio/currency.html'
+    return render(request,template)
+
+
+
 @login_required
 def portfolio(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
@@ -225,7 +231,6 @@ def portfolio(request, pk):
                                                         'grand_total_results': grand_total_results,
 
                                                         })
-
 
 
 # List at the end of the views.py
